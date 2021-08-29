@@ -1,0 +1,47 @@
+UC01-->(Create DATABASE)
+CREATE DATABASE addressbook;
+show databases;
+ USE addressbook;
+ 
+ UC02-->(CreatetableOfAddressBook)
+ Create table address_book(
+     firstname    VARCHAR(150) NOT NULL,
+     lastname    VARCHAR(150) NOT NULL,
+     address     VARCHAR(150) NOT NULL,
+     city      VARCHAR(150) NOT NULL,
+     state   VARCHAR(150) NOT NULL,
+     zip     INT(6) NOT NULL,
+     phone_number  VARCHAR(150) NOT NULL,
+     email_address  VARCHAR(150) NOT NULL
+     );
+	 
+UC03-->(InsertDetails)
+INSERT INTO address_book (firstname,lastname,address,city,state,zip,phone_number,email_address) VALUES
+   ('Jay','Bajpai','Rajaji Puram ','Lucknow','UP','226017','7318558154','sangeetbajpai786@gmail.com'),
+    ('Abhishek','Gupta','Triveni Nagar','Lucknow','UP','226017','6486586900','abhigupta01oct@gmail.com');
+
+
+SELECT * FROM address_book;
+
+UC04-->(EditContact)
+UPDATE address_book set email_address = 'sangeetbajpai@outlook.com' WHERE firstname = 'Jay';
+ Select * from address_book;
+ 
+ UC05-->(DeleteContact)
+ DELETE FROM address_book WHERE firstname = 'Jay' and lastname = 'Bajpai';
+ Select * from address_book;
+ 
+ UC06-->(RetrievePerson)
+ Select * from address_book Where city = 'Lucknow' or state = 'UP';
+ 
+ UC07-->(GetSizeOfAddressBook)
+ Select Count(*)  from address_book Where city = 'Lucknow' or state = 'UP';
+ 
+ UC08-->(RetrieveEntriesSortedAlphabetically)
+ INSERT INTO address_book (firstname,lastname,address,city,state,zip,phone_number,email_address) VALUES
+       ('Jay','Bajpai','Rajaji Puram','Lucknow','UP','226017','7318558154','sangeetbajpai786@gmail@gmail.com');
+
+ INSERT INTO address_book (firstname,lastname,address,city,state,zip,phone_number,email_address) VALUES
+     ('Rajlkumar','Bajpai','Rajaji Puram','Lucknow','UP','226017','6387939446','rajkumar4791@gmail.com');
+
+Select * from address_book a Where city = 'Lucknow' order by a.firstname;
